@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.tabItems.active {
+  color: #fff;
+}
+
+.hide {
+  display: none;
+}
+
+.mr8 {
+  margin-right: 8px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#content {
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  float: left;
+  height: 100vh;
+  width: 200px;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(202, 152, 160),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+#nav,
+.subnav {
+  cursor: pointer;
+}
+
+#nav > li {
+  margin-left: 16px;
+  width: 184px;
+  color: #000;
+  line-height: 64px;
+}
+
+#nav > li:hover > p {
+  opacity: 0.6;
+}
+
+#nav .subnav {
+  width: 184px;
+}
+
+#nav .subnav li {
+  margin-left: 26px;
+}
+
+#nav .subnav li:hover {
+  opacity: 0.6;
+}
+
+footer #body {
+  margin-left: 200px;
+}
+
+.wrap-layout {
+  background-color: #fff;
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50px;
+  width: 40%;
+  height: 40vh;
+  margin-bottom: 50px;
+  background-color: #ccc;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.student-list:hover{
+    background-color: #ccc;
+}
+
+.tab-pane ul{
+  text-align: center;
+}
+
+.tab-pane li{
+  line-height: 42px;
+  padding: 6px 0;
+  min-width: 200px;
+  display: inline-block;
+}
+
+.account_user{
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+
+.account_user img{
+  width: 80px;
+  border-radius: 50px;
+  border: 1px solid #ccc;;
+}
+
+.name_user{
+}

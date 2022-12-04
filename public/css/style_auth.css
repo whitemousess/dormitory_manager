@@ -38,7 +38,8 @@
     align-items: center;
 }
 
-input[type="text"],[type="password"],[type="email"]{
+select,
+input[type="text"],[type="password"],[type="email"],[type="date"]{
     width: 90%;
     padding: 6px 18px;
     border: 1px solid #ccc;
@@ -46,6 +47,10 @@ input[type="text"],[type="password"],[type="email"]{
 }
 
 .header_login{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,6 +76,8 @@ input[type="text"],[type="password"],[type="email"]{
 
 form .body{
     width: 50%;
+    margin-left: 50%;
+    margin-top: 50px;
 }
 
 form .body ul li{

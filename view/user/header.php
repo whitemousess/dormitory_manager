@@ -1,6 +1,8 @@
 <?php
 require '../../controller/m_database.php';
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +12,7 @@ require '../../controller/m_database.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/css/style_admin.css">
+    <link rel="stylesheet" href="../../public/css/base.css">
     <link rel="stylesheet" href="../../public/font/fontawesome-free-6.1.1-web/css/all.css">
     <title>USER</title>
 </head>
@@ -33,10 +36,10 @@ require '../../controller/m_database.php';
                 <p class="manage-bill"><i class="fa-regular fa-calendar mr8"></i>Hóa Đơn</p>
                 <ul class="subnav hide">
                     <li>
-                        <p class="tabItems">Điện nước</p>
+                        <p class="tabItems"><i class="fa-sharp fa-solid fa-bolt mr8"></i>Điện </p>
                     </li>
                     <li>
-                        <p class="tabItems">Dịch vụ</p>
+                        <p class="tabItems"><i class="fa-solid fa-droplet mr8"></i>nước</p>
                     </li>
                 </ul>
             </li>
@@ -53,6 +56,7 @@ require '../../controller/m_database.php';
                             <p>Chuột bạch</p>
                         </li>
                     </ul>
+                    <button value="<?php if (isset($_Session['username']) && $_session['user']) ?>">LogOut</button>
                 </div>
             </li>
         </ul>

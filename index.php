@@ -1,65 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+@session_start();
+include_once "core/request.php";
+include_once "core/controller.php";
+define('_DIR_ROOT', __DIR__);
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/style_home.css">
-    <link rel="stylesheet" href="./public/font/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="./public/css/base.css">
-    <title>BLACK CAT</title>
-</head>
+if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'){
+    $web_root = 'https://' . $_SERVER['HTTP_HOST'];
+}else{
+    $web_root = 'http://' . $_SERVER['HTTP_HOST'];
+}
 
-<body>
-    <div id="header">
-        <ul id="nav">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#footer">ABOUT</a></li>
-            <li>
-                <a href="#">
-                    MORE
-                    <i class="ti-angle-down"></i>
-                </a>
-                <ul class="subnav">
-                    <a href="https://www.facebook.com/100080041670472">
-                        <li>FaceBook</li>
-                    </a>
-                    <a href="#">
-                        <li>Youtube</li>
-                    </a>
-                </ul>
-            </li>
-            <li><a href="./view/auth/login.php">LOG IN</a></li>
-            <li><a href="./view/auth/register.php">REGISTER</a></li>
-        </ul>
+$forder = str_replace(strtolower($_SERVER['DOCUMENT_ROOT']),'', str_replace('\\','/', strtolower(_DIR_ROOT)));
+$web_root = trim($web_root . trim($forder, '\\'), '/');
 
-        <div class="search-box">
-            <input class="search-input" type="text" placeholder="Search">
-            <button class="search-btn">
-                <i class="ti-search"></i>
-            </button>
-        </div>
-    </div>
+define('_WEB_ROOT', $web_root);
 
-    <div id="slider">
-        <div class="slider-img">
-            <img src="./public/img/slider/slider.png" alt="Trường đại học Tài Nguyên và Môi Trường Hà Nội">
-        </div>
-        <div class="text-content">
-            <h1 class="text-content__header">HUNRE</h1>
-            <h4 class="text-in-img">Trang chủ làm thủ tục đăng ký ở ký túc xá</h4>
-        </div>
-    </div>
+$request = new Request();
+$controllerName = $request->controller;
+$methodName = $request->method;
+$role = $request->role;
 
-    <div id="content">
 
-    </div>
-
-    <div id="footer">
-
-    </div>
-</body>
-<script src="./public/js/main_home.js"></script>
-
-</html>
+// create controllerName
+if($role == "admin"){
+    require_once('controllers/admin/' . $controllerName . '.php');
+}else{
+    require_once('controllers/' . $controllerName . '.php');
+}
+$controller = new $controllerName();
+$controller->{$methodName}();
